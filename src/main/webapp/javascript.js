@@ -1,42 +1,54 @@
-/**
- * 
- */
- /* var BaseURL = 'http://localhost:8079/sampleHospital/webapi/';
-var output = document.getElementById('notify');
-(function getAlerts(){
-    $.ajax({
-        url: 'http://localhost:8079/sampleHospital/webapi/alerts',
-        datatype:'text',
-        success: function(data){
-        output.innerHTML = data;
-        }, 
-        complete:poll,
-        timeout:30000
-        });
-    
-        
-    })();
+// the javascript file to consume restful API. 
 
 
-function xmlParser(data){
-    var xml = $.parseXML(data);
-    $(xml).find("alerts").each(function () {
-        $(".main").append(
-            $(this).find("notification").text()
-        );
-    });
-}
-
-var output = document.getElementById('longPollingResult');
-(function poll() {
-   $.ajax({url: "http://localhost:8080/examplejee6longpolling/longpolling", 
+$(document).ready(function(){
+var output = document.getElementById('listusers');
+var baseUrl = 'http://localhost:8080/sampleHospital/webapi/';
+(function getUsers() {
+   $.ajax({
+	   url: baseUrl + 'users',
         success: function(data) {
-            output.innerHTML = data;
-        }, dataType: "text", complete: poll, timeout: 30000});
-})(); */
+        		 output.innerHTML = data;
+        }, 
+        dataType: 'text', 
+        complete: getUsers, 
+        timeout: 30000
+        });
+})();
+
+var alert = document.getElementById('listnotify');
+
+(function getAlerts() {
+   $.ajax({
+	   url: baseUrl + 'alerts',
+        success: function(response) {	
+         alert.innerHTML = response;
+        }, 
+        dataType: 'text', 
+        complete: getAlerts, 
+        timeout: 30000
+        });
+})();
+
+
+var message = document.getElementById('listMessage');
+
+(function getMessages() {
+   $.ajax({
+	   url: baseUrl + 'messages',
+        success: function(data) {	
+         message.innerHTML = data;
+        }, 
+        dataType: 'text', 
+        complete: getMessages, 
+        timeout: 30000
+        });
+})();
+});
 
 
 
+/*
 function onLoadnotification(link){
 		var url = "http://localhost:8080/sampleHospital/webapi/";
 		var xhttp;
@@ -59,7 +71,7 @@ function onLoadnotification(link){
 	}
 
 
-// to load messages
+// to load alerts
 
 $(function(){
 	
@@ -71,19 +83,6 @@ $(function(){
 });	
 
 
-/*
-// to load notifications
-
-$(function(){
-	
-	$('#notifications').on('click', function(){
-		
-		onLoad('alerts');
-		
-	});
-});
-
-*/
 
 function loadnotification(xml){
 	
@@ -105,6 +104,101 @@ function loadnotification(xml){
 		    x[i].getElementsByTagName("date")[0].childNodes[0].nodeValue +
 		    "</td></tr></table>";
 		}
-		  document.getElementById("listnotify").innerHTML = table;
+		  document.getElementById("listusers").innerHTML = table;
 		  
 }
+
+// to Consume the users from the API 
+
+function onLoadusers(link){
+	var url = "http://localhost:8080/sampleHospital/webapi/";
+	var xhttp;
+	
+	if(window.XMLHttpRequest){
+		xhttp = new XMLHttpRequest();
+	}
+	else{
+		xhttp = new ActiveXObject(Miscrosoft.XMLHTTP);
+	}
+	
+	xhttp.onreadystatechange = function(location){
+		if(xhttp.readyState == 4 && xhttp.status == 200){
+			loadusers(xhttp);
+		}
+	};	
+	
+	xhttp.open('GET', url + link, true );
+	xhttp.send();
+}
+
+
+//to load messages
+
+$(function(){
+
+$('.chat-info dropdown').on('click', function(){
+	('.dropdown-menu').hide();
+	onLoadusers('users');
+	
+});
+});	
+
+
+function loadusers(xml){
+
+var xmlReq = xml.responseXML;
+var i;
+var table;
+
+table = '<table><tr><th> Id </th><th> notifications</th><th> Date </th>';
+
+x = xmlReq.getElementsByTagName("users");
+
+for(i = 0; i < x.length; i++){
+	
+	 table += "<tr><td>" +
+	    x[i].getElementsByTagName("id")[0].childNodes[0].nodeValue +
+	    "</td><td>" +
+	    x[i].getElementsByTagName("content")[0].childNodes[0].nodeValue +
+	    "</td></tr>";
+	    x[i].getElementsByTagName("date")[0].childNodes[0].nodeValue +
+	    "</td></tr></table>";
+	}
+	  document.getElementById("chatgroups").innerHTML = table;
+	  
+} */
+/*
+var baseUrl = "http://localhost:8080/sampleHospital/webapi/";
+
+function getAlerts(){
+	$.ajax({
+		url : baseUrl + 'users',
+		type:'get',
+		dataType:'xml',
+		success : listAlert
+		
+	});
+}*/
+
+/*
+var BaseURL = 'http://localhost:8080/sampleHospital/webapi/';
+(function (){
+	$.ajax ({
+        url: BaseURL + 'users',
+        dataType:'xml',
+        type: 'get',
+        success: function(){
+        		console.log('poll');     	
+        },
+	});
+});
+
+/*function xmlParser(data){
+    var xml = $.parseXML(data);
+    $(xml).find("alerts").each(function () {
+        $(".main").append(
+            $(this).find("notification").text()
+        );
+    });
+} */
+
