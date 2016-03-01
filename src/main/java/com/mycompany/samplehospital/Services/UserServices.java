@@ -23,7 +23,7 @@ public class UserServices {
 	public UserServices(){
 		users.put(1,new User(1,"sandesh poudel","male",23,27939,"vantaa","boss"));
 		users.put(2,new User(2,"surendra Pandey","male",23,27939,"helsinki","ASSISTANT"));
-
+		users.put(3,new User(3,"shurakshya Kharel","female",20,2345,"Espoo","Nothing"));
 	}
 	
 	

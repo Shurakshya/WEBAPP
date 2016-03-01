@@ -1,137 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Chat Application</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-  <link rel='stylesheet' type='text/css' media='all' href='chat.css'>
-  <script  src = "control.js" type = "text/javascript"></script> 
-  <script  src = "javascript.js" type = "text/javascript"></script>  
+<title>Chat Application</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Raleway'
+	rel='stylesheet' type='text/css'>
+<link rel='stylesheet' type='text/css' media='all' href='chat.css'>
+<link rel='stylesheet' type='text/css' media='all' href='chatbox.css'>
+<link rel="stylesheet"
+	href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css">
+<script src="control.js" type="text/javascript"></script>
+<!-- <script  src = "javascript.js" type = "text/javascript"></script>  
+ -->
 
 </head>
 <body>
-    <nav class="navbar navbar-default sidebar" role="navigation">  
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>      
-            </div>
-            <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Dashboard<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Task<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
-                  <ul class="dropdown-menu forAnimate" role="menu">
-                    <li><a href="{{URL::to('createusuario')}}"> Report</a></li>
-                    <li><a href="#">Send report</a></li>
-                    <li><a href="#">Attached messages</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Form</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Images</a></li>
-                </ul>
-            </li>          
-            <li ><a href="#">CDEFGH<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
-            <li ><a href="#">EXTRA<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-        </ul>
-    </div>
-</div>
-</nav>
+	<nav class="navbar navbar-default sidebar" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-sidebar-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse"
+				id="bs-sidebar-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Dashboard<span
+							style="font-size: 16px;"
+							class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">My Task<span class="caret"></span><span
+							style="font-size: 16px;"
+							class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+						<ul class="dropdown-menu forAnimate" role="menu">
+							<li><a href="{{URL::to('createusuario')}}"> Report</a></li>
+							<li><a href="#">Send report</a></li>
+							<li><a href="#">Attached messages</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Form</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Images</a></li>
+						</ul></li>
+					<li><a href="#">Logout<span style="font-size: 16px;"
+							class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
+					<li><a href="#">EXTRA<span style="font-size: 16px;"
+							class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-<div class="clearfix">
-    <div class="container-fluid">
-        <ul class="pull-left">
-            <li class="profile-info dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                    <img src="#" alt = "image" class="test">
-                    "My name"    
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Edit Profile </a></li>
-                    <li><a href="#"> Calendar </a></li>
-                </ul>
-            </ul>
-            <ul class="pull-left pull-right-xs pull-none-xsm" style="margin-top: 20px;">
-                <li id="notice" class="notifications dropdown" style="padding-right:10px;">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        notifications
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="top">
-                            <p class="small">
-                                <a href="#" class="pull-right">Mark all read</a>
-                                "you have "<strong> 3</strong>
-                                "new notifications." 
-                                <span id = "listnotify"></span>
-                              
-                            </p>
-                        </li>
-                    </ul> 
-                </li>
+	<div class="clearfix">
+		<div class="container-fluid">
+			<ul class="pull-left">
+				<li class="profile-info dropdown"><a href="#"
+					class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+						<img
+						src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Yonina_Tulip.jpg"
+						alt="image" class="test"> "My name"
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="Profile.html">Edit Profile </a></li>
+						<li><a href="#"> Calendar </a></li>
+					</ul>
+			</ul>
+			<ul class="pull-left pull-right-xs pull-none-xsm"
+				style="margin-top: 20px;">
+				<li id="notice" class="notifications dropdown"
+					style="padding-right: 10px;"><a href="#"
+					class="dropdown-toggle" data-toggle="dropdown"
+					data-hover="dropdown" data-close-others="true"> notifications </a>
+					<ul class="dropdown-menu">
+						<li class="top">
+							<p class="small">
+								<a href="#" class="pull-right">Mark all read</a> "you have "<strong>
+									3</strong> "new notifications."
+							</p>
+						</li>
+						<li id="listnotify"></li>
+					</ul></li>
 
-                <li class="notifications dropdown col-sm-offset-1">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">Reports
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="top">
-                            <p class="small">
-                                <a  href="#" class="pull-right">Mark all read</a>
-                                "you have "<strong> 3</strong>
-                                "new notifications."
-                                
-                            </p>
-                        </li>
-                    </ul>
-                </li>
-                <li id="message" class="notifications dropdown col-sm-offset-1" style="padding-right:10px;">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">Messages
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="top">
-                            <p class="small">
-                                <a href="#" class="pull-right">Mark all read</a>
-                                "you have "<strong> 3</strong>
-                                "new notifications."
-                                <span id="listMessage"></span> 
-                               
-                            </p>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+				<li class="notifications dropdown col-sm-offset-1"><a href="#"
+					class="dropdown-toggle" data-toggle="dropdown"
+					data-hover="dropdown" data-close-others="true">Reports </a>
+					<ul class="dropdown-menu">
+						<li class="top">
+							<p class="small">
+								<a href="#" class="pull-right">Mark all read</a> "you have "<strong>
+									3</strong> "new notifications."
 
-            <ul class="pull-right pull-left-xs" style="margin-top: 20px; padding-right: 30px;">
-                <li class="chatinfo dropdown" style="padding-right:15px;">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                        Chat  
-                    </a>    
-                 <ul class="dropdown-menu">
-                        <li class="UsersView">Online
-                        <span id = "listusers"></span>
-                        </li>
-                        <li><a class="slide"> Groups</a></li>
-                    </ul>   
-                </li>
-                <li> Logout </li>
-            </ul>
-            
-            <div class="jumbotron">
-                <h2 class="text-uppercase" style="position:relative;color:black;"> Jorvi Chat Application
-                </h2>
-                <p class="small" style="position:relative">Productme is the last word in diligent products. We know you never settle for less than the best and neither do <br/> 
-                    we. Achieve with professional grade tools and work your future.
-                </p>
-            </div>
+							</p>
+						</li>
+						<li id="listReports"></li>
+					</ul></li>
+				<li id="message" class="notifications dropdown col-sm-offset-1"
+					style="padding-right: 10px;"><a href="#"
+					class="dropdown-toggle" data-toggle="dropdown"
+					data-hover="dropdown" data-close-others="true">Messages </a>
+					<ul class="dropdown-menu">
+						<li class="top">
+							<p class="small">
+								<a href="#" class="pull-right">Mark all read</a> "you have "<strong>
+									3</strong> "new notifications."
+							</p>
+						</li>
+						<li id="listMessage"></li>
+					</ul></li>
+			</ul>
 
-        </div>
-    </div>
+			<ul class="pull-right pull-left-xs"
+				style="margin-top: 20px; padding-right: 30px;">
+				<li class="chatinfo" style="padding-right: 15px;"><a
+					href="#sidr" id="rightmenu"> Chat </a>
+					<div id="sidr">
+						<ul id="listusers">
+							<li>Shurakshya Kharel</li>
+							<li>Sandesh Poudel</li>
+						</ul>
+						<ul id="GroupChat">
+							<li>ChatRoom1</li>
+							<li>ChatRoom2</li>
+							<li>ChatRoom3</li>
+							<li>ChatRoom4</li>
+						</ul>
+					</div>
+			</ul>
+
+			<!-- <div class="jumbotron">
+				<h2 class="text-uppercase" style="position: relative; color: black;">
+					Jorvi Chat Application</h2>
+				<p class="small" style="position: relative">
+					Productme is the last word in diligent products. We know you never
+					settle for less than the best and neither do <br /> we. Achieve
+					with professional grade tools and work your future.
+				</p>
+
+			</div>
+			  -->
+			<div class="footer" style="display:none">
+		
+		<div class="container bootstrap snippet">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="portlet portlet-default">
+					<div class="portlet-heading">
+						<div class="portlet-title">
+							<h4>Username here</h4>
+						</div>
+						<div class="portlet-widgets">
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-white dropdown-toggle btn-xs"
+									data-toggle="dropdown">
+									<i class="fa fa-circle text-green"></i> Status <span
+										class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#"> Online</a></li>
+									<li><a href="#"> Away</a></li>
+									<li><a href="#"> Offline</a></li>
+								</ul>
+							</div>
+							<span class="divider"></span> <a data-toggle="collapse"
+								data-parent="#accordion" href="#chat"></a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div id="chat" class="panel-collapse collapse in">
+						<div>
+							<div class="portlet-body chat-widget"
+								style="overflow-y: auto; width: auto; height: 300px;">
+								<div class="row">
+									<div class="col-lg-12">
+										<p class="text-center text-muted small">time and date here</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="media">
+											<a class="pull-left" href="#"> <img
+												src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Yonina_Tulip.jpg"
+												class="img-circle" alt="Cinque Terre" width="30" height="30">
+											</a>
+											<div class="media-body">
+												<h4 class="media-heading">
+													Jane Smith <span class="small pull-right">12:23 PM</span>
+												</h4>
+												<p>something over here</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<hr>
+							</div>
+
+						</div>
+
+						<div class="portlet-footer">
+							<form role="form">
+								<div class="form-group">
+									<textarea class="form-control" placeholder="Enter message..."></textarea>
+								</div>
+								<div class="form-group">
+									<button type="button" class="btn btn-default pull-right">Send</button>
+									<div class="clearfix"></div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+			
+			</div>
+		</div>
+	</div>
+	<script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
+	<!-- Including the Sidr JS -->
+	<script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			var c = 0;
+			$('#rightmenu').click(function() {
+				$('.jumbotron').stop().animate({
+					left : ++c % 2 * 100
+				}, 'fast');
+
+			});
+
+			$('#rightmenu').sidr({
+				side : 'right'
+
+			});
+			
+			$('#sidr').on('click','li',function(){
+				$('.footer').css('display','block');
+				
+			});
+
+		});
+	</script>
 </body>
 </html>

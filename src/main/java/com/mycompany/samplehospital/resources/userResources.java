@@ -79,7 +79,7 @@ public class userResources {
     }
     @DELETE 
       @Path("/{userId}")
-       @Produces(MediaType.APPLICATION_JSON)
+       @Produces(MediaType.APPLICATION_XML)
 
     public User delUser(@PathParam("userId") int ID){
     	return service.removeUser(ID);
