@@ -1,4 +1,4 @@
-// the javascript file to consume restful API. 
+// the JavaScript file to consume restful API. 
 
 $(document).ready(function() {
 	var baseUrl = 'http://localhost:8080/sampleHospital/webapi/';

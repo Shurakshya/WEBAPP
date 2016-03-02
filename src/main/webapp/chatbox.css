@@ -1,5 +1,13 @@
-#footer {
-	display: hidden;
+
+.col-md-3{
+	width:27%;
+	padding-right:2px ;
+	padding-left:0px !important;
+}
+
+.row{
+	width: auto;
+	margin-left:2px ;
 }
 
 .portlet {

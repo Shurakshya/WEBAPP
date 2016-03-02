@@ -122,12 +122,14 @@
 				style="margin-top: 20px; padding-right: 30px;">
 				<li class="chatinfo" style="padding-right: 15px;"><a
 					href="#sidr" id="rightmenu"> Chat </a>
+					
 					<div id="sidr">
 						<ul id="listusers">
+							
 							<li>Shurakshya Kharel</li>
 							<li>Sandesh Poudel</li>
 						</ul>
-						<ul id="GroupChat">
+						<ul id="GroupChat"> 
 							<li>ChatRoom1</li>
 							<li>ChatRoom2</li>
 							<li>ChatRoom3</li>
@@ -136,7 +138,7 @@
 					</div>
 			</ul>
 
-			<!-- <div class="jumbotron">
+		<div class="jumbotron">
 				<h2 class="text-uppercase" style="position: relative; color: black;">
 					Jorvi Chat Application</h2>
 				<p class="small" style="position: relative">
@@ -145,26 +147,28 @@
 					with professional grade tools and work your future.
 				</p>
 
-			</div>
-			  -->
-			<div class="footer" style="display:none">
-		
-		<div class="container bootstrap snippet">
-		<div class="row">
-			<div class="col-md-4">
+			</div>  
+			 
+			  
+	
+		<div id="chatbox">
+		<div id="eachchatbox"  style="display:none">
+			<div class="col-md-3" >
 				<div class="portlet portlet-default">
 					<div class="portlet-heading">
 						<div class="portlet-title">
-							<h4>Username here</h4>
+							<h4><span id="username" style="color:white"></span></h4>
 						</div>
 						<div class="portlet-widgets">
 							<div class="btn-group">
 								<button type="button"
 									class="btn btn-white dropdown-toggle btn-xs"
 									data-toggle="dropdown">
-									<i class="fa fa-circle text-green"></i> Status <span
+									Status <span
 										class="caret"></span>
 								</button>
+								<button type="button" class="btn btn-white btn-xs" id="minimize"><span class="glyphicon glyphicon-minus"></span></button>
+								<button type="button" class="btn btn-white btn-xs" id="remove"><span class="glyphicon glyphicon-remove"></span></button>
 								<ul class="dropdown-menu" role="menu">
 									<li><a href="#"> Online</a></li>
 									<li><a href="#"> Away</a></li>
@@ -174,7 +178,7 @@
 							<span class="divider"></span> <a data-toggle="collapse"
 								data-parent="#accordion" href="#chat"></a>
 						</div>
-						<div class="clearfix"></div>
+						<div class="clearfix" style="background-color: transparent"></div>
 					</div>
 					<div id="chat" class="panel-collapse collapse in">
 						<div>
@@ -212,21 +216,21 @@
 									<textarea class="form-control" placeholder="Enter message..."></textarea>
 								</div>
 								<div class="form-group">
+									<input type="file" name="datafile" size="40">
 									<button type="button" class="btn btn-default pull-right">Send</button>
-									<div class="clearfix"></div>
+									<div class="clearfix" style="background-color: transparent"></div>
 								</div>
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
 		
-			
-			</div>
-		</div>
 	</div>
+</div>
+</div>
+
+</div>
 	<script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
 	<!-- Including the Sidr JS -->
 	<script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
@@ -235,21 +239,40 @@
 			var c = 0;
 			$('#rightmenu').click(function() {
 				$('.jumbotron').stop().animate({
-					left : ++c % 2 * 100
+					left : ++c % 2 * 1000
 				}, 'fast');
 
 			});
 
 			$('#rightmenu').sidr({
-				side : 'right'
-
+				side : 'right',
+				displace: false
+				});
+				
+			$('#sidr').on('click','li',function(){
+				var name= $(this).text();
+				document.getElementById("username").innerHTML = name;
+				var chatdiv = $('#eachchatbox').html();
+				$('#chatbox').append(chatdiv);
+				
+				$('#chatbox').css({
+					'bottom': '0',
+					'right' :'0'
+				});
+				window.scrollTo(0,document.body.scrollHeight);
+				
+			}).mouseout(function(){
+				$('#sidr').hide();
+			});
+			$('#rightmenu, #sidr, #listusers, #GroupChat').mouseover(function(){
+				$('#sidr').show();
 			});
 			
-			$('#sidr').on('click','li',function(){
-				$('.footer').css('display','block');
+			$(':button').on('click','#remove', function(){
+				alert(clicked);
 				
 			});
-
+			
 		});
 	</script>
 </body>
