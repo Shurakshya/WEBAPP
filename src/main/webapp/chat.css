@@ -3,12 +3,12 @@ body, html {
 	margin-right: 0;
 }
 
+
 ul li {
 	display: inline;
 	font-size: 14px;
 	text-decoration: none;
 }
-
 
 #sidr {
 	background-color: #E0E0E0;
@@ -32,20 +32,7 @@ ul li {
 	color: white;
 	text-align: center
 }
-.chatbox{
-	width:80%;
-    background-color:transparent;
-    float:left;
-    position:relative;
-    display: flex;
-    justify-content: flex-end;                                              
-}
-.eachchatbox{
-	align-self: flex-end;
-	margin : 0;
-	
-}
-                            
+                        
 nav.sidebar, .main {
 	-webkit-transition: margin 200ms ease-out;
 	-moz-transition: margin 200ms ease-out;
@@ -69,10 +56,11 @@ nav.sidebar, .main {
 }
 
 .jumbotron {
-	margin-top: 60px;
+	margin-top: 100px;
 	margin-left: 140px;
 	overflow: hidden;
 	margin-right: 15px;
+	
 }
 
 #msg-icon {
@@ -80,6 +68,10 @@ nav.sidebar, .main {
 	height: 43px;
 	margin: auto;
 	cursor: pointer;
+}
+.dropdown-menu .top .small{
+	width: 300px !important;
+    height:auto ;
 }
 
 .counter {

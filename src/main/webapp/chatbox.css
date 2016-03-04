@@ -4,6 +4,26 @@
 	padding-right:2px ;
 	padding-left:0px !important;
 }
+.chatbox{
+	width:80%;
+    background-color:transparent;
+    float:left;
+    position:relative;
+    display: flex;
+    justify-content: flex-end; 
+                                             
+}
+.eachchatbox{
+	align-self: flex-end;
+	margin : 0;
+	display:inline-block;
+	
+}
+.hide_wrap_box {
+    height:22px;
+    bottom:0;
+}
+    
 
 .row{
 	width: auto;
@@ -73,12 +93,12 @@
 
 .portlet .portlet-body {
 	padding: 15px;
-	background: #fff;
+	background-color: #E0E0E0;
 }
 
 .portlet .portlet-footer {
 	padding: 10px 15px;
-	background: #e0e7e8;
+	background-color: #e0e7e8;
 }
 
 .portlet .portlet-footer ul {
@@ -106,8 +126,8 @@
 .portlet-blue, .portlet-blue>.portlet-heading {
 	border-color: #2980b9;
 }
-
-.portlet-blue>.portlet-heading {
+.portlet-blue>
+.portlet-heading {
 	color: #fff;
 	background-color: #2980b9;
 }
