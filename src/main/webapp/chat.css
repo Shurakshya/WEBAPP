@@ -3,11 +3,26 @@ body, html {
 	margin-right: 0;
 }
 
+h2,h3{
+	text-align:center;
+}
 
+h4{
+	font-style: italic;
+}
 ul li {
 	display: inline;
 	font-size: 14px;
 	text-decoration: none;
+}
+hr{
+	
+	border-top:2px solid #555;
+}
+
+.glyphicon{
+	font-weight :bold;
+	font-size :20px;
 }
 
 #sidr {
@@ -21,7 +36,17 @@ ul li {
 	background-color: #E0E0E0;
 	margin-right: 10px;
 }
-
+.badge{
+   background:red !important;
+   color: black;
+   position:relative !important;
+   top: -15px !important;
+   left: -5px !important;
+   font-weight:bold !important;
+   font-size: 14px;
+   padding: 2px 3px; 				
+   font-weight: bold;
+  }
 .test {
 	position: relative;
 	width: 60px;
@@ -42,6 +67,7 @@ nav.sidebar, .main {
 
 .clearfix {
 	background-color: #E0E0E0;
+	background-image:url('http://4.bp.blogspot.com/-D1xnfD4wFoY/UGGAJMhA3tI/AAAAAAAACkw/cQc1aije0Rc/s1600/gray_background_for_websites.jpg');
 }
 
 .main {
@@ -57,34 +83,66 @@ nav.sidebar, .main {
 
 .jumbotron {
 	margin-top: 100px;
-	margin-left: 140px;
+	margin-left: 70px;
 	overflow: hidden;
 	margin-right: 15px;
+	width:80%;
+	
+	
+}
+.col-md-4{
+	background-color: 	#eee;
+	width:326px;
+	margin:5px;
+	height:300px;
+	overflow-y : scroll;
+	
 	
 }
 
-#msg-icon {
-	width: 35px;
-	height: 43px;
-	margin: auto;
-	cursor: pointer;
-}
-.dropdown-menu .top .small{
-	width: 300px !important;
-    height:auto ;
+
+
+
+.well {
+    min-height: 20px;
+  	padding : 5px;
+    margin-top: 0px ;
+    margin-right: -10px;
+    margin-left:-10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgba(175, 39, 39, 0.5);
+    background-color: #ebeffa;
+    /* border: 1px solid #e3e3e3; */
+    /* border-radius: 4px; */
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+
+	
 }
 
-.counter {
-	display: inline;
-	color: #fff;
-	font-size: 12px;
-	padding: 0px 3px;
-	float: right;
-	margin-top: 7px;
-	margin-right: 3px;
-	border-radius: 2px;
+.dropdown-menu {
+	width: 350px !important;
+    height:400px;
+    background-image: url("http://cdn3.bigcommerce.com/r-2f88f07c87a534f827280ca29dcbb47af013d2e2/themes/GreaseMonkey/images/bg.jpg");
+	background-color:rgba(255, 255,255, 0.5);
+	padding : 0px 0;
+}
+.dropdown-menu > li{
+	border-bottom : 1px solid black ;
+}
+#footelement {
+	margin-left:60px;
 }
 
+footer {
+    background-color: #252528;
+    text-align:center;
+    clear:both;
+    color: #bcbbbd;
+	height: 150px;
+  	margin :-15px;
+  	padding-top : 12px;
+  		
+}
 @media ( min-width : 765px) {
 	.main {
 		position: absolute;
@@ -174,3 +232,4 @@ nav:hover .forAnimate {
 section {
 	padding-left: 15px;
 }
+
